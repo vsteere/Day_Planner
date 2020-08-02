@@ -18,7 +18,8 @@ console.log(currentTime);
 var currentTimeInt = parseInt(currentTime);
 console.log(currentTimeInt);
 
-//assigns a data atribute to each of the rows and assigning a time using moment.js. referenced MDN to select the "data-" attribute
+//jQuery to assign a data atribute to each of the rows and assigning a time using moment.js. referenced MDN to select the "data-" attribute
+//since it's a data piece that will not be showing in the browswer but will be needed to run the code
 $("#9").attr("data-moment", moment("09", "kk").format("HH"));
 $("#10").attr("data-moment", moment("10", "kk").format("HH"));
 $("#11").attr("data-moment", moment("11", "kk").format("HH"));
@@ -51,7 +52,7 @@ console.log(currentTimeInt>eventtimeInt)
 //this for loop is a more elegant way to do the above work. It cycles the i between 9 and 17 limiting it to the worktime hours
 for (var i = 9; i<18; i++)
 {
-    //this variable allows the cycling of the data-moment attribute for all of time slots
+    //this variable set up allows the cycling of the data-moment attribute for all of time slots
     var scheduleTime = $("#" + i).attr("data-moment");
     var scheduletimeInt = parseInt(scheduleTime);
 
