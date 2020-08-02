@@ -32,8 +32,9 @@ $("#17").attr("data-moment", moment("17", "kk").format("HH"));
 //this checks if the data time attribute works as intended
 console.log(currentTime===("#15"));
 
-
-var eventTime = $("#9").attr("data-time");
+//these different checks for lines 36-42 are me working through the initial logic set-up to make sure it works
+//they set the stage for the code below
+var eventTime = $("#9").attr("data-moment");
 console.log(eventTime);
 eventtimeInt = parseInt(eventTime);
 console.log(eventtimeInt);
