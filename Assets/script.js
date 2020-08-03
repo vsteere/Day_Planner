@@ -5,6 +5,8 @@ var date = document.querySelector("#currentDay");
 //defining variable to use with moment.js using military time(24 hour clock) per definitions in moment.js documentation
 var rightNow = moment().format("dddd, MMMM Do YYYY kkmm");
 
+//this is the function to pull the data from local storage
+getData();
 
 //pushes the date from moment.js to HTML and "hours" statement at the end
 date.innerText=rightNow + " hours";
@@ -91,6 +93,7 @@ $(".saveBtn").click(function() {
 }
 );
 
+//function that pulls data from storage based on the ID's that were asigned to the text boxes
 function getData() {
     for (var i = 9; i < 18; i++) {
         $("#" + i).val(localStorage.getItem(i));
