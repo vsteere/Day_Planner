@@ -30,6 +30,20 @@ $("#15").attr("data-moment", moment("15", "kk").format("HH"));
 $("#16").attr("data-moment", moment("16", "kk").format("HH"));
 $("#17").attr("data-moment", moment("17", "kk").format("HH"));
 
+
+//this assigns a local save attribute to the time blocks for when the local save will run
+$("#a").attr("localSave", "9");
+$("#b").attr("localSave", "10");
+$("#c").attr("localSave", "11");
+$("#d").attr("localSave", "12");
+$("#e").attr("localSave", "13");
+$("#f").attr("localSave", "14");
+$("#g").attr("localSave", "15");
+$("#h").attr("localSave", "16");
+$("#i").attr("localSave", "17");
+
+
+
 //this checks if the data time attribute works as intended
 console.log(currentTime===("#15"));
 
@@ -39,7 +53,6 @@ var eventTime = $("#9").attr("data-moment");
 console.log(eventTime);
 eventtimeInt = parseInt(eventTime);
 console.log(eventtimeInt);
-
 console.log(currentTimeInt===eventtimeInt);
 console.log(currentTimeInt>eventtimeInt)
 
@@ -67,5 +80,21 @@ for (var i = 9; i<18; i++)
         $("#" + i).addClass("present")
     }
 };
+//on click event to send data to local storage
+$(".saveBtn").click(function() {
+    //new variable to pull the sibling of the save button with the class of description
+    var enterData = $(this).siblings(".description").val();
+    //new variable to pull the localSave attribute of the parent div of the particular save button
+    var enterTime = $(this).parent().attr("localSave");
+    //the actual call that pulls the data to local storage, withe the time being the key and the data being the value
+    localStorage.setItem(enterTime, enterData);
+}
+);
 
+function getData() {
+    for (var i = 9; i < 18; i++) {
+        $("#" + i).val(localStorage.getItem(i));
+    }
+
+}
 
