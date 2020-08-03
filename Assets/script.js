@@ -33,7 +33,7 @@ $("#16").attr("data-moment", moment("16", "kk").format("HH"));
 $("#17").attr("data-moment", moment("17", "kk").format("HH"));
 
 
-//this assigns a local save attribute to the time blocks for when the local save will run
+//this assigns a local save attribute to the time blocks to act as the key when the data gets saved to local storage
 $("#a").attr("localSave", "9");
 $("#b").attr("localSave", "10");
 $("#c").attr("localSave", "11");
@@ -93,7 +93,7 @@ $(".saveBtn").click(function() {
 }
 );
 
-//function that pulls data from storage based on the ID's that were asigned to the text boxes
+//function to pull data from local storage upon load/refresh based on the IDs that were asigned to the text boxes
 function getData() {
     for (var i = 9; i < 18; i++) {
         $("#" + i).val(localStorage.getItem(i));
