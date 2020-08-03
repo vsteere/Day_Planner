@@ -88,7 +88,7 @@ $(".saveBtn").click(function() {
     var enterData = $(this).siblings(".description").val();
     //new variable to pull the localSave attribute of the parent div of the particular save button
     var enterTime = $(this).parent().attr("localSave");
-    //the actual call that pulls the data to local storage, withe the time being the key and the data being the value
+    //the comamnd to push the data to local storage, withe the time being the key and the data being the value
     localStorage.setItem(enterTime, enterData);
 }
 );
